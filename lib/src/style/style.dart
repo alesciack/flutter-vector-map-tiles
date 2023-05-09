@@ -82,7 +82,9 @@ class StyleReader {
       final maxzoom = source['maxzoom'] as int? ?? 14;
       if (entryTiles is List && entryTiles.isNotEmpty) {
         final tileUri = entryTiles[0] as String;
-        final tileUrl = StyleUriMapper(key: apiKey).mapTiles(tileUri);
+        //final tileUrl = StyleUriMapper(key: apiKey).mapTiles(tileUri);
+        final tileUrl =
+            StyleUriMapper(key: apiKey).mapTiles(sourceUrl + '/' + tileUri);
         providers[entry.key] = NetworkVectorTileProvider(
             urlTemplate: tileUrl, maximumZoom: maxzoom);
       }
